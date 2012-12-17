@@ -1,1 +1,6 @@
+safe: false
+url: http://ika18.github.com/blog
 baseurl: /blog
+paginate: 10
+
+source: .
