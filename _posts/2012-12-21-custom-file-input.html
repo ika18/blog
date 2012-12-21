@@ -17,14 +17,18 @@ title: 自定义html中的file input
 
 <p>今天在晚上看了另外一个方法，尝试了下非常方便。原理是按钮层里嵌着input，把input放大，然后opacity设为0。按钮层设置overflow为hidden。代码如下</p>
 
-<pre class="prettyprint lang-html">
+<pre class="prettyprint">
+    <code class="lang-html">
     <div class="btn">
         Upload another picture
         <input type="file" name="UploadImage"/>
     </div>
+    </code>
+    
 </pre>
 
-<pre class="prettyprint lang-css">
+<pre class="prettyprint">
+    <code>
     .upload-btn {
         position: relative;
         overflow: hidden;
@@ -40,4 +44,7 @@ title: 自定义html中的file input
         opacity: 0;
         *filter: alpha(opacity=0);
     }
+    </code>
 </pre>
+
+<p>希望对大家有帮助！</p>
