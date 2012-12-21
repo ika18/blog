@@ -1,6 +1,43 @@
 ---
 layout: default
-title: 力力在目的博客  
+title: 自定义html中的file input
 ---
 
-<h2>Ika</h2>
+<h2>自定义html中的file input</h2>
+
+<p>今天应该是盛传已久的玛雅人语言的世界末日，不过似乎推迟了....平安度过！不扯这个了。</p>
+
+<p>因为我平时做文件上传的项目较少，而且要求文件上传的触发是file input确认后就上传的更少，更加可恶的是要从IE7开始兼容平且自定义input file的经验为零。</p>
+
+<p>比如样子如下：</p>
+
+<img src="/img/2012-12-21/1.png" alt="截图一">
+
+<p>之前看到过一种做法是将一个input file的opacity设为0，然后鼠标进入按钮后，input跟随鼠标。但是实际实现起来发现太烦人了。而且会发生input不跟随鼠标情况，原因应该是鼠标变成了mouseover在input上了，导致mouseover在按钮上的事件失效。</p>
+
+<p>今天在晚上看了另外一个方法，尝试了下非常方便。原理是按钮层里嵌着input，把input放大，然后opacity设为0。按钮层设置overflow为hidden。代码如下</p>
+
+<pre class="prettyprint lang-html">
+    <div class="btn">
+        Upload another picture
+        <input type="file" name="UploadImage"/>
+    </div>
+</pre>
+
+<pre class="prettyprint lang-css">
+    .upload-btn {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        *zoom: 1;
+    }
+
+    .btn input {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 100px;
+        opacity: 0;
+        *filter: alpha(opacity=0);
+    }
+</pre>
