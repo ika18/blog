@@ -2,7 +2,7 @@ safe: false
 auto: false
 server: true
 url: http://ika18.github.com/blog
-# baseurl: /blog
+baseurl: /blog
 paginate: 10
 
 source: .
